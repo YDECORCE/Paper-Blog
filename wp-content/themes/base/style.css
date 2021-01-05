@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/*
+Theme Name: Template de base
+
+
+*/
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+.bgmenu{
+  background-image: url("BGpaper.jpg");
+  background-position : top right;
+}
+.imgsizing{
+    max-width: 250px;
+    height: auto; 
+}
+.aboutsect{
+  column-count:2;
+  column-fill: balance;
+  text-align: justify;
+  margin: 15px 0px 50px 0px;
+}
+.designsect{
+  column-count:3;
+  column-fill: balance;
+  text-align: justify;
+  margin: 15px 0px 15px 0px;
+}
+
+.work_img{
+    display: flex;
+    flex-wrap: wrap;
+}
+h2 span{
+    color: rgb(245,134,84);
+    
+}
+h2{
+  text-transform:uppercase;
+  font-weight: bolder;
+  display: inline-block;
+    position: relative;
+}
+:root{
+  --after-lign-work-width : 1000px;
+  --after-lign-about-width : 1000px;
+  --after-lign-design-width : 1000px;
+}
+#work:after
+{
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: var(--after-lign-work-width);
+    top: 40%;
+    background: rgb(234,234,234) ;  
+    left: 110%;
+}
+#about:after
+{
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: var(--after-lign-about-width);
+    top: 40%;
+    background: rgb(234,234,234) ;  
+    left: 110%;
+}
+#design:after
+{
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: var(--after-lign-design-width);
+    top: 40%;
+    background: rgb(234,234,234) ;  
+    left: 110%;
+}
+
+.title_section{
+    padding :10px 0px 30px 0px
+}
+.menu-item{
+  text-decoration:none!important;
+  list-style-type: none;
+  color: black;
+  padding:5px 0px 5px 0px;
+}
+.menu-item>a:hover{
+  color: rgb(245,134,84);
+  font-weight: bolder;
+}
+.menu-item>a{
+  text-decoration:none!important;
+  color: black;
+  font-style:italic;
+}
+/* vertical navabr*/
+
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); */
+    transition: all 0.4s;
+  }
+  
+  .page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+  }
+  
+  /* for toggle behavior */
+  
+  #sidebar.active {
+    margin-left: -17rem;
+  }
+  
+  #content.active {
+    width: 100%;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    #sidebar {
+      margin-left: -17rem;
+    }
+    #sidebar.active {
+      margin-left: 0;
+    }
+    #content {
+      width: 100%;
+      margin: 0;
+    }
+    #content.active {
+      margin-left: 17rem;
+      width: calc(100% - 17rem);
+    }
+  }
