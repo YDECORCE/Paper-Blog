@@ -29,6 +29,7 @@ body{
 }
 
 .work_img{
+    padding-top: 15px;
     display: flex;
     flex-wrap: wrap;
 }
