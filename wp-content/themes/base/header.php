@@ -14,20 +14,20 @@ $url = site_url();
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= site_url()."/wp-content/themes/".get_template()."/style.css"; ?>">
     <script src="https://kit.fontawesome.com/73ba95509c.js" crossorigin="anonymous"></script>
-  <title>Hello, world!</title>
+  <title>Paper : Agence format A0</title>
 </head>
 
 <body>
   <!-- Vertical navbar -->
 <div class="vertical-nav bgmenu" id="sidebar">
-  <div class="py-4 px-3 mb-4 ">
-    <div class="media d-flex align-items-center"><img src="wp-content/uploads/2021/01/logo.png" alt="Logo Paper" width="100%" class="mr-3">
+  <div class="py-3  mb-4 ">
+    <div class="media d-flex justify-content-center"><img src="wp-content/uploads/2021/01/logo.png" alt="Logo Paper" width="140px" class="mr-3">
     </div>
   </div>
 
 <?php
 wp_nav_menu(array(
-      'menu'                 => '',
+      'menu'                 => 'Menu Principal',
       'container'            => 'nav',
       'container_class'      => 'nav flex-column  mb-0',
       'container_id'         => '',

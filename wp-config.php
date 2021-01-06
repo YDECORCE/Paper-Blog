@@ -22,7 +22,7 @@
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Nom de la base de données de WordPress. */
-define( 'DB_NAME', 'paper_blog' );
+define( 'DB_NAME', 'paperblog' );
 
 /** Utilisateur de la base de données MySQL. */
 define( 'DB_USER', 'root' );
@@ -53,14 +53,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'zFm[Cm*;7]Yqo9 H#u?6#Sm/(-:^xi?8)=a$rebKX[(Q5)mrk55|4N[6]/1xeXJ@' );
-define( 'SECURE_AUTH_KEY',  'J|`;|e+F93VY;RwC`cDeC%<r;CLh}2E=R9I/vY{ZehJOh60-`iIsi1A;]4Ew7X.P' );
-define( 'LOGGED_IN_KEY',    '3rK4_da[iNBs=zo=3y@K.ag-+aBUE|Z}ALENjgHU!r_4:H;1izCb`kNdQ#d<[6Q-' );
-define( 'NONCE_KEY',        'MUK.xkfI;Fu79MbN<^`8J9H3~mNQ1~E.H>e#5x(L&ikPNkU+XSt/9^t=[FpGOZ0$' );
-define( 'AUTH_SALT',        'C>Re[$Kw/Zb5hT&7n.OTa:pB`q8xm2dk%8jFhuZ?mFNx/EFo1>pxuZYkc!R?(RKp' );
-define( 'SECURE_AUTH_SALT', 'J7hV:2<)Sw!T1]^]lCGPdZ*Z=o+r|aR>p)TG&P;366@t}SEkvE<5EPm+AhO#xR`e' );
-define( 'LOGGED_IN_SALT',   ',=~^Q1zLUFv7Uc=EB/@1}A*!T#j1:?=:#Ny^:)q&xIWd&}^*J]&Q.MV6yPdwZ`[f' );
-define( 'NONCE_SALT',       '-o[tYRlux{Q>P7JwE20atXM0zy#>PS=*8 %GGFB!p{&iOGGmgS~LmgY+vMq@}LE7' );
+define( 'AUTH_KEY',         'vJ(`|.U[YR]q}#7IyN+BXy*/ZEl_[m)}|!kAGXzVl6Zi@W!?`/#<qjdkQKVZX*v0' );
+define( 'SECURE_AUTH_KEY',  '<`K@P1tfC[ly3]T(#F^k{NzIwr{X^}gV1Eik]ctK8j2YB=xu(zp,OcE}cLzxtf~w' );
+define( 'LOGGED_IN_KEY',    'Q~@wXQ! = %+I]4qZ=Hnnn8KJ@sJzns,c*6q[A_xsF]/sWzxz|O<J$(bk]yM,J.P' );
+define( 'NONCE_KEY',        'GgC!X=I3rM,& >[+mSxVW<>MLb,JBOd->2rPf`uW>phsBy2T^~s{*tj; sz:q8PQ' );
+define( 'AUTH_SALT',        'M89:.B(A7)5<qx}_HKS^2.=C]Z;82?AP7dz&Dt+1>AIkWE6qfsPRqRA9xc3bn9Fz' );
+define( 'SECURE_AUTH_SALT', '6VEZ>wfU`$i&FRPt8C>NVvW`HvQg^.<[a#]4Z-Dz_jB}{U>8703uI$^`&FV}4>;9' );
+define( 'LOGGED_IN_SALT',   'yIGi$aQZ~`n:14Wvi~pj{p#8V?)*NeyzIq4gyeGMpgq)sJSw`@C:RuPMrU)X/6&e' );
+define( 'NONCE_SALT',       'M`L.)uO|cS<3i*4:de@2kAR;hL+V-ZaJz`5ksL`[?V6D>$$FQW& 0Q2pDlZ}2E!,' );
 /**#@-*/
 
 /**
@@ -70,7 +70,7 @@ define( 'NONCE_SALT',       '-o[tYRlux{Q>P7JwE20atXM0zy#>PS=*8 %GGFB!p{&iOGGmgS~
  * si vous leur donnez chacune un préfixe unique.
  * N’utilisez que des chiffres, des lettres non-accentuées, et des caractères soulignés !
  */
-$table_prefix = 'pbwp_';
+$table_prefix = 'bpwp_';
 
 /**
  * Pour les développeurs : le mode déboguage de WordPress.

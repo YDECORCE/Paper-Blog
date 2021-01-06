@@ -96,6 +96,19 @@ h2{
   color: black;
   font-style:italic;
 }
+.carousel-indicators li{
+  height:10px!important;
+  width:10px!important;
+  border-radius: 100%;
+  background-color: black;
+}
+
+.carousel-indicators{
+  position: relative!important;
+  justify-content: flex-end;
+  margin-right: 0;
+  margin-left: 0;
+}
 /* vertical navabr*/
 
 .vertical-nav {
