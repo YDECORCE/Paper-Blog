@@ -47,11 +47,21 @@ wp_nav_menu(array(
       'theme_location'       => '',
 ));
 ?>
-
-</div> 
+ 
 <!-- End vertical navbar  -->
+<!-- vertcial footer-->
+<div class="footer">
+<div class="menu-item item-footer">
+  <a href="#">About paper</a>
+  <a href="#">Contact Me</a>
+  <a href="#">Check out Twitter</a>
+  <a href="#">Check out Facebook</a>
+</div>
+</div>
 
+<!-- end of vertcial footer-->
 
+</div>
 <!-- Page content holder -->
 <div class="page-content p-5" id="content">
   <!-- Toggle button -->

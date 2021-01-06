@@ -27,7 +27,7 @@
       <?php $slider = get_field("slider_element");
       ?>
 
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-ride="carousel">
         
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -66,6 +66,20 @@ for ($i=1; $i < count($slider) ; $i++) {
       <div class="designsect">
          <?php echo get_field("awesone_design");
         ?>
+      </div>
+      <div class="testimonials">
+        <h3>this is a quote or <span>call to action</span></h3>
+        <?php
+        $testimonials=get_field("testimonials");
+        // var_dump($testimonials);
+        for ($i=0;$i<count($testimonials);$i++){
+          echo '<div class="single_testimonial">';
+          echo '<p class="citation">'.$testimonials[$i]["citation"].'</p>';
+          echo '<p class="author_testimonial">'.$testimonials[$i]["author"].' - '.$testimonials[$i]["date"].' - '.$testimonials[$i]["url"].'</p>';
+          echo '</div>';
+        }
+        ?>
+
       </div>
     </div>
   </div>

@@ -42,6 +42,16 @@ h2{
   display: inline-block;
     position: relative;
 }
+h3{
+  text-transform:uppercase;
+  padding-top: 50px;
+  padding-left: 30px;
+  font-size: 1.25rem!important;
+}
+h3 span{
+  color: rgb(245,134,84);
+}
+
 :root{
   --after-lign-work-width : 1000px;
   --after-lign-about-width : 1000px;
@@ -109,6 +119,27 @@ h2{
   margin-right: 0;
   margin-left: 0;
 }
+
+.testimonials {
+  background-color: rgb(234,234,234);
+  min-height : 250px;
+  margin : 50px 10px 10px 10px;
+}
+
+.single_testimonial{
+  padding: 20px 20px 20px 50px;
+} 
+
+.author_testimonial{
+  text-align: end;
+  color: rgb(150, 150, 150);
+}
+.citation:before{
+  content: '"';
+}
+.citation:after{
+  content: '"';
+}
 /* vertical navabr*/
 
 .vertical-nav {
@@ -139,6 +170,25 @@ h2{
     margin: 0;
   }
   
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  min-height: 50px;
+  min-width: 17rem;
+  width: 17rem;
+  padding-bottom: 50px;
+ }  
+
+.item-footer>a{
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: 2rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
   @media (max-width: 768px) {
     #sidebar {
       margin-left: -17rem;
