@@ -40,7 +40,7 @@
     
     <div class="title_section" id="aboutsection">
       <h2 id="about">about <span>paper</span></h2>
-      <div class="aboutsect">
+      <div class="col-12 aboutsect">
         <?php echo get_field("about");?>
       </div>
       <?php $slider = get_field("slider_element");?>
@@ -81,7 +81,7 @@
     </div>
     <div class="title_section" id="designsection">
       <h2 id="design">this is an <span>awesome design</span></h2>
-      <div class="designsect">
+      <div class="col-12 designsect">
         <?php echo get_field("awesone_design");
         ?>
       </div>
