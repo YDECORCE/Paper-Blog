@@ -9,28 +9,26 @@
     <div class="title_section" id="worksection">
       <h2 id="work">latest <span>work</span></h2>
       <div class="work_img">
+        <!-- On génère un affichage sur 5 colonnes avec Bootstrap -->
         <?php 
               $values=get_field("project");
+            //  var_dump($values);
               $photonumbers=count($values);
+              // echo $photonumbers;
               $numberofrow=floor($photonumbers/5);
-         for($j=0;$j<$numberofrow;$j++){
-          
+         for($j=0;$j<$numberofrow;$j++){ 
           echo'<div class="row justify-content-between ">';
-          for($i=0; $i<(($j+1)*5);$i++){
-            $index=$i*($j+1);
-            
+          for($i=0; $i<5;$i++){
+            $index=$i+($j*5); 
             echo "<div class='col-12 col-sm-2 col-lg-2 mb-5'>";
             echo "<img src='".$values[$index]['project_picture']['url']."' alt='image' class='img-fluid'>";
             echo "</div>";
           }
           echo'</div>';
-         
-      }     
+        }     
         echo'<div class="row justify-content-between ">';
         $modulo=$numberofrow*5;
-        
-         for($i=$modulo; $i<$photonumbers;$i++){
-          
+        for($i=$modulo; $i<$photonumbers;$i++){ 
           echo "<div class='col-12 col-sm-2 col-lg-2 mb-2'>";
           echo "<img src='".$values[$i]['project_picture']['url']."' alt='image' class='img-fluid'>";
           echo "</div>";

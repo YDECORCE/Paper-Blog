@@ -30,8 +30,6 @@ body{
 
 .work_img{
     padding-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
 }
 h2 span{
     color: rgb(245,134,84);
