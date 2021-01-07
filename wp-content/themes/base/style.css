@@ -1,7 +1,13 @@
 @charset "UTF-8";
 /*
-Theme Name: Template de base
-
+Theme Name: Template Paper Blog
+Author: Access code School - Yann Decorce
+Author URI: https://yannd.promo-44.codeur.online
+Description: First template create during the ACS formation in 2021.
+Requires at least: 5.6
+Requires PHP: 7.4
+Version: 1.0
+Tags: one-column, flexible-header,  custom-menu, , ACF extension ,editor-style,  , sticky-menu, responsive
 
 */
 body{
