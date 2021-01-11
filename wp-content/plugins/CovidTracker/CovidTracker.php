@@ -7,11 +7,9 @@ Author: ACS Lons le Saunier - Yann DECORCE - 2021
 Version: 1.0
 Author URI: https://yannd.promo-44.codeur.online/
 */
+require_once plugin_dir_path(__FILE__) . 'includes/config.php';
+
 if(!defined('ABSPATH')){
     define('ABSPATH', dirname(__FILE__).'/');
 }
 
-// ajout de la nouvelle table
-include_once("Model/functioncovid.php");
-
-register_activation_hook(__FILE__,"DBP_covid_create()");
