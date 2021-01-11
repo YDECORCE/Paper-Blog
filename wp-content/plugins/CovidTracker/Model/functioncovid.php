@@ -27,3 +27,13 @@ $conn->exec($sql);
 $conn = null;
 }
 }
+
+function adddatatotable(){
+    $curl=curl_init("https://coronavirusapi-france.now.sh/AllLiveData");
+    curl_setopt($curl,CURLOPT_SSL_VERIFYYPEER, false);
+    $data = curl_exec($curl);
+    if ($data===false){
+        var_dump(curl_error($curl));
+    }else{var_dump($data);}
+    curl_close($curl);
+}

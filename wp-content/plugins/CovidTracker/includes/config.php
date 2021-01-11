@@ -22,5 +22,5 @@ add_menu_page(
 }
 //Maintenant génération de l'intérieur de la page admin quand le slug est appelé
 function covid_tracker_admin_page(){
-echo 'coucou';
+    adddatatotable();
 }
