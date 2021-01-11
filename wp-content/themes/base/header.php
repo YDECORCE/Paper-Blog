@@ -21,7 +21,7 @@ $url = site_url();
   <!-- Vertical navbar -->
 <div class="vertical-nav bgmenu" id="sidebar">
   <div class="py-3  mb-4 ">
-    <div class="media d-flex justify-content-center"><img src="wp-content/uploads/2021/01/logo.png" alt="Logo Paper" width="140px" class="mr-3">
+    <div class="media d-flex justify-content-center"><img src="<?= site_url()."/wp-content/uploads/2021/01/logo.png";?>" alt="Logo Paper" width="140px" class="mr-3">
     </div>
   </div>
 

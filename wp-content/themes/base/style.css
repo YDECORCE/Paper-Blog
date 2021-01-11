@@ -199,7 +199,24 @@ p>span{
     padding-bottom: 5px;
     
 }
+.post-title{
+  text-align: center;
+  font-weight: bolder;
+  color: rgb(245,134,84);
 
+}
+figure{
+    text-align: center;
+}
+.category{
+  padding :15px 0px 15px 15px;
+}
+.post-content>p{
+  padding : 15px;
+  column-count:2;
+  column-fill: balance;
+  text-align: justify;
+}
   @media (max-width: 768px) {
     #sidebar {
       margin-left: -17rem;
@@ -215,6 +232,9 @@ p>span{
       margin-left: 17rem;
       width: calc(100% - 17rem);
     }
+  }
+  .screen-reader-text{
+    display:none;
   }
 /* media querie responsive phone */
   @media (max-width: 767px) {
