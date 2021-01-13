@@ -1,20 +1,20 @@
 <?php
-/* Creating database Table for plugin */
+/* Create a connexion to database*/
 function connect(){
 global $wpdb;
 $servername = $wpdb->dbhost;
 $username = $wpdb->dbuser;
 $password = $wpdb->dbpassword;
 $dbname = $wpdb->dbname;
-$dbtable_covid=$wpdb->prefix."table_covid";
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 return $conn;
 }
 
-
+/* Creating database Table for plugin */
 function dbtable_covid_create(){
 global $wpdb;
 $conn = connect();
+$charset_collate = $wpdb->get_charset_collate();
 $dbtable_covid=$wpdb->prefix."table_covid";
 $sh = $conn->prepare( "DESCRIBE $dbtable_covid ");
 if ( !$sh->execute() ) {
@@ -29,12 +29,12 @@ nouvellesHospitalisations int(30),
 nouvellesReanimations int(30),
 deces int(30),
 gueris int(30)
-)";
+) $charset_collate;";
 $conn->exec($sql);
 $conn = null;
 }
 }
-
+/* Download API datas in a specific DB Table*/
 function adddatatotable(){
     $url = "https://coronavirusapi-france.now.sh/AllLiveData";
     $ch = curl_init();
@@ -44,7 +44,6 @@ function adddatatotable(){
     $data=curl_exec($ch);
     curl_close($ch);
     $reponse=json_decode($data,true);
-    // var_dump($reponse);
     $conn = connect();    
     for($i=0;$i<count($reponse['allLiveFranceData']);$i++){
             $ajouter=$conn->prepare("INSERT INTO `bpwp_table_covid`(`id`, `code`, `nom`, `date`, `hospitalises`, `reanimation`, `nouvellesHospitalisations`, `nouvellesReanimations`, `deces`, `gueris`) 
@@ -59,9 +58,42 @@ function adddatatotable(){
             $ajouter->bindParam(':deces', $reponse['allLiveFranceData'][$i]['deces'],PDO::PARAM_STR);
             $ajouter->bindParam(':gueris', $reponse['allLiveFranceData'][$i]['gueris'],PDO::PARAM_STR);
             $estceok=$ajouter->execute();
-            if($estceok){
-                    echo 'Votre enregistrement a été ajouté avec succès <br>';} 
-                else {
-                    echo 'Veuillez recommencer svp, une erreur est survenue <br>';}
-                    }
+            }
+}
+/* function for changing datas in DB table */
+function updatecovid(){
+    $conn = connect();
+    $delete=$conn->prepare("DELETE FROM `bpwp_table_covid`");
+    $estceok=$delete->execute();
+    if($estceok){
+                echo 'effacement OK</br>';} 
+            else {
+                echo 'WTF</br>';}
+    adddatatotable();
+    echo "la table a été mise à jour";
+}
+
+/* select all datas from filter (DEP or REG) in DB table */
+function getdatas($filter){
+    $conn = connect();
+    $datas=$conn->prepare("SELECT * FROM `bpwp_table_covid` WHERE (bpwp_table_covid.code LIKE $filter)");
+    $datas->execute();
+    return $datas->fetchAll();
+}
+
+function getdata($s){
+    // echo $s;
+    $search="'".$s."'";
+    // echo $search;
+    $conn = connect();
+    $datas=$conn->prepare("SELECT * FROM `bpwp_table_covid` WHERE bpwp_table_covid.nom LIKE $search");
+    $datas->bindParam(':search', $search,PDO::PARAM_STR);
+    // $datas->debugDumpParams();
+    // die;
+    $datas->execute();
+    // var_dump($datas);
+    // $datas->debugDumpParams();
+    $datas=$datas->fetchAll();
+    // var_dump($datas);
+    return $datas;
 }

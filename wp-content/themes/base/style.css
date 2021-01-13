@@ -41,7 +41,9 @@ body{
 }
 h2 span{
     color: rgb(245,134,84);
-    
+}
+h1 span{
+      color: rgb(245,134,84);    
 }
 h2{
   text-transform:uppercase;

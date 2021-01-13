@@ -1,0 +1,12 @@
+
+.bg_entete_tab{
+    background-color:aqua;
+    color: white;
+    /*font-weight: bolder;*/
+    text-align: center;
+}
+
+.container{
+    background-color:aqua;
+    min-height: 100vh;
+}
