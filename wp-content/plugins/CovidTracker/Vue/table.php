@@ -32,7 +32,7 @@ ob_start();
                 </tbody>
             </table>
 <?php
-$table='';
+// $table='';
 $table=ob_get_clean();
 require(plugin_dir_path(__DIR__) .'Vue/searchpage.php');
 ?>

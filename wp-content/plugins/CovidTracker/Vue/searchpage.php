@@ -13,8 +13,7 @@ ob_start();
 <p>Situation COVID à la date du <?=$datas[0]["date"]?></p>
 </div>
 <div>
-    <h2>le moteur de recherche</h2>
-    
+        
     <!-- <label for="table-select">Afficher les données par :</label>
     <select name="format" id="table-select">
             <option value="">Choisir l'affichage</option>
@@ -24,7 +23,7 @@ ob_start();
     <button class="btn primary-btn" type="submit" name="action" value="showtable">Afficher</button>
     </form> -->
     <div>
-    <form action="" method="get">
+    <form action="" method="post">
     <label for="table-select">Afficher les données de :</label>
     <?php
     if ($s=='departement'){
@@ -34,7 +33,28 @@ ob_start();
     else{
         echo "pas de recherche possible";}
         ?>
-    <button class="btn primary-btn" type="submit" name="action" value="show">Afficher</button>
+    <button class="btn primary-btn" type="submit" name="action" value="showone">Afficher</button>
+    </form>
+    </div>
+    <div>
+    <form action="" method="post">
+    <label for="table-select">Appliquer le filtre :</label>
+    <select name="column" id="col-select">
+            <option value="">Choisir un champ</option>
+            <option value="hospitalises">Hospitalisés</option>
+            <option value="reanimation">Réanimations</option>
+            <option value="nouvellesHospitalisations">Nouvelles Hospitalisations</option>
+            <option value="nouvellesReanimations">Nouvelles Réanimations</option>
+            <option value="deces">Décès</option>
+            <option value="gueris">Guérisons</option>
+    </select>
+    <select name="operator" id="operator-select">
+            <option value=""></option>
+            <option value="<">Inférieur à </option>
+            <option value=">=">Supérieur à</option>
+    </select>
+    <input type="number" id="name" name="value" required>
+    <button class="btn primary-btn" type="submit" name="action" value="filter">Filtrer</button>
     </form>
     </div>
 </div>

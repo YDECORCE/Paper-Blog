@@ -87,9 +87,6 @@ function getdata($s){
     // echo $search;
     $conn = connect();
     $datas=$conn->prepare("SELECT * FROM `bpwp_table_covid` WHERE bpwp_table_covid.nom LIKE $search");
-    $datas->bindParam(':search', $search,PDO::PARAM_STR);
-    // $datas->debugDumpParams();
-    // die;
     $datas->execute();
     // var_dump($datas);
     // $datas->debugDumpParams();
@@ -117,3 +114,13 @@ function liste_déroulante($filter)
     }
     echo'</select>';
     }
+
+function filterdatas($requete){
+    $conn=connect();
+    $datas=$conn->prepare("SELECT * FROM `bpwp_table_covid` WHERE $requete");
+    $datas->bindParam(':search', $search,PDO::PARAM_STR);
+    $datas->execute();
+    $datas=$datas->fetchAll();
+    return $datas;
+
+}
