@@ -28,22 +28,20 @@ function displayWidthSearchBar_controler($s){
     if (isset($_POST['action'])&&($_POST['action']=='showone')){
         $search=$_POST['search'];
         if ($search=='all'){
-            $datas=getdatas($filter);}
+            $requete="code LIKE ".$filter;}
         else {
-        $datas=getdata($search);
+        $requete="nom LIKE '".$search."' AND code LIKE ".$filter; 
         }}
         elseif(isset($_POST['action'])&&($_POST['action']=='filter')){
             $champ=$_POST['column'];
             $operator=$_POST['operator'];
             $value=$_POST['value'];
             $requete=$champ.$operator.$value." AND code LIKE ".$filter;
-            // echo $requete;
-            // die;
-            $datas=filterdatas($requete);
-        }
+            }
         else{
-        $datas=getdatas($filter);}
-
+        $requete="code LIKE ".$filter;    
+        }
+    $datas=getdatas($requete);        
     require(plugin_dir_path(__DIR__) .'Vue/table.php');    
     return $html;
 }

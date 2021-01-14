@@ -73,27 +73,15 @@ function updatecovid(){
     echo "la table a été mise à jour";
 }
 
-/* select all datas from filter (DEP or REG) in DB table */
-function getdatas($filter){
+/* select all datas from requete made by shortcode or searchbar */
+function getdatas($requete){
     $conn = connect();
-    $datas=$conn->prepare("SELECT * FROM `bpwp_table_covid` WHERE (bpwp_table_covid.code LIKE $filter)");
+    $datas=$conn->prepare("SELECT * FROM `bpwp_table_covid` WHERE $requete");
     $datas->execute();
     return $datas->fetchAll();
 }
 
-function getdata($s){
-    // echo $s;
-    $search="'".$s."'";
-    // echo $search;
-    $conn = connect();
-    $datas=$conn->prepare("SELECT * FROM `bpwp_table_covid` WHERE bpwp_table_covid.nom LIKE $search");
-    $datas->execute();
-    // var_dump($datas);
-    // $datas->debugDumpParams();
-    $datas=$datas->fetchAll();
-    // var_dump($datas);
-    return $datas;
-}
+
 
 function liste_déroulante($filter)
     {
@@ -114,13 +102,3 @@ function liste_déroulante($filter)
     }
     echo'</select>';
     }
-
-function filterdatas($requete){
-    $conn=connect();
-    $datas=$conn->prepare("SELECT * FROM `bpwp_table_covid` WHERE $requete");
-    $datas->bindParam(':search', $search,PDO::PARAM_STR);
-    $datas->execute();
-    $datas=$datas->fetchAll();
-    return $datas;
-
-}

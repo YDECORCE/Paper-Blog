@@ -23,7 +23,7 @@ if(!defined('ABSPATH')){
 function covid_departments_shortcode() {
          
     //Récupère le tableau des clients
-    $departements = getdatas("'DEP%'");
+    $departements = getdatas("code LIKE 'DEP%'");
  
     //Si pas de clients on retourne un message d'info
     if(empty($departements)){
@@ -42,7 +42,7 @@ function covid_departments_shortcode() {
  */
 function covid_regions_shortcode() {
     
-    $regions = getdatas("'REG%'");
+    $regions = getdatas("code LIKE 'REG%'");
  
     //Si pas de clients on retourne un message d'info
     if(empty($regions)){
@@ -64,8 +64,9 @@ function covid_onezone_shortcode($atts) {
     //Récupéation de l'attribut "search
     //Recherche dans nom
     $s = isset($atts['s']) ? $atts['s'] : '';
-    //Récupère le tableau des clients
-    $zone = getdata($s);
+    //on conditionne la requete
+    $requete="nom LIKE '".$s."'";
+    $zone = getdatas($requete);
  
     //Si pas de clients on retourne un message d'info
     if(empty($zone)){
