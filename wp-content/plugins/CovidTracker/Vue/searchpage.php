@@ -14,46 +14,37 @@ ob_start();
 </div>
 <div>
     <h2>le moteur de recherche</h2>
+    
+    <!-- <label for="table-select">Afficher les données par :</label>
+    <select name="format" id="table-select">
+            <option value="">Choisir l'affichage</option>
+            <option value="DEP">Départements</option>
+            <option value="REG">Régions</option>
+    </select>
+    <button class="btn primary-btn" type="submit" name="action" value="showtable">Afficher</button>
+    </form> -->
     <div>
+    <form action="" method="get">
+    <label for="table-select">Afficher les données de :</label>
     <?php
-    liste_déroulante("'DEP%'");
-    liste_déroulante("'REG%'");
-    ?>
+    if ($s=='departement'){
+        liste_déroulante("'DEP%'");}
+    elseif($s=='region'){
+        liste_déroulante("'REG%'");}
+    else{
+        echo "pas de recherche possible";}
+        ?>
+    <button class="btn primary-btn" type="submit" name="action" value="show">Afficher</button>
+    </form>
     </div>
 </div>
 
-<table class="table table-hover table-sm">
-                <thead class="bg_entete_tab text-center">
-                    <tr>
-                        <th scope="col" style="width:28%">Nom</th>
-                        <th scope="col" style="width:12%">Hospitalisés</th>
-                        <th scope="col" style="width:12%">Réanimations</th>
-                        <th scope="col" style="width:12%">Nouvelles Hospitalisations</th>
-                        <th scope="col" style="width:12%">Nouvelles Réanimations</th>
-                        <th scope="col" style="width:12%">Décès</th>
-                        <th scope="col" style="width:12%">Guérisons</th>
-                      
-                    </tr>
-                </thead>
-                <tbody class="text-center">
-                    <?php 
-                    foreach($datas as $data){
-                        echo '<tr>';
-                        echo '<td>'.$data["nom"].'</td>';
-                        echo '<td>'.$data["hospitalises"].'</td>';
-                        echo '<td>'.$data["reanimation"].'</td>';
-                        echo '<td>'.$data["nouvellesHospitalisations"].'</td>';
-                        echo '<td>'.$data["nouvellesReanimations"].'</td>';
-                        echo '<td>'.$data["deces"].'</td>';
-                        echo '<td>'.$data["gueris"].'</td>';
-                        echo '</tr>';
-                    }
-                    ?>
-                </tbody>
-            </table>
-
-
-
 <?php
+if(isset($table)){echo $table;}    
+
+
+
+
+
 $html=ob_get_clean();
 ?>

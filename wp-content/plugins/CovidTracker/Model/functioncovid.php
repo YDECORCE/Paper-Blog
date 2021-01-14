@@ -101,19 +101,19 @@ function getdata($s){
 function liste_déroulante($filter)
     {
     if ($filter=="'DEP%'"){
-        $label='Choisir le département';
+        $label='tous les départements';
         $name='departement';
         }
         else{
-            $label='Choisir la région';
+            $label='toutes les régions';
             $name='region';
         }
     $bdd=connect();
     $reponse = $bdd->query("SELECT `code`, `nom` FROM `bpwp_table_covid` WHERE (bpwp_table_covid.code like $filter)");
-    echo'<select class="custom-select my-2 mx-5" name='.$name.'>';
-    echo'<option value="NULL">'.$label.'</option>';
+    echo'<select class="custom-select my-2 mx-5" name="search">';
+    echo'<option value="all">'.$label.'</option>';
     while ($donnees = $reponse->fetch()) {
-        echo'<option value='.$donnees['code'].'>'.$donnees['nom'].' </option>';
+        echo'<option value='.$donnees['nom'].'>'.$donnees['nom'].' </option>';
     }
     echo'</select>';
     }

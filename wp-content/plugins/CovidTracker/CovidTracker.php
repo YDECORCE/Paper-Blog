@@ -75,18 +75,13 @@ function covid_onezone_shortcode($atts) {
     $html=showresultswithoutsearch($zone);
     return $html;
 }
-function displayWidthSearchBar_shortcode() {
+function displayWidthSearchBar_shortcode($atts) {
     //Récupéation de l'attribut "search
-    //Recherche dans nom
+    $s = isset($atts['s']) ? $atts['s'] : '';
+   
     //Récupère le resultat de la recherche
-    $html = displayWidthSearchBar_controler();
+    $html = displayWidthSearchBar_controler($s);
  
-    //Si pas de clients on retourne un message d'info
-    // if(empty($zone)){
-    //    return "<p>pas de données à afficher!</p>";
-    // } 
-    //Retourne le code HTML du shortcode
-    // $html=showresultswithoutsearch($zone);
     return $html;
 }
 
