@@ -13,25 +13,18 @@ ob_start();
 <p>Situation COVID à la date du <?=$datas[0]["date"]?></p>
 </div>
 <div>
-        
-    <!-- <label for="table-select">Afficher les données par :</label>
-    <select name="format" id="table-select">
-            <option value="">Choisir l'affichage</option>
-            <option value="DEP">Départements</option>
-            <option value="REG">Régions</option>
-    </select>
-    <button class="btn primary-btn" type="submit" name="action" value="showtable">Afficher</button>
-    </form> -->
-    <div>
     <form action="" method="post">
     <label for="table-select">Afficher les données de :</label>
     <?php
     if ($s=='departement'){
-        liste_déroulante("'DEP%'");}
+        liste_déroulante("'DEP%'");
+    }
     elseif($s=='region'){
-        liste_déroulante("'REG%'");}
+        liste_déroulante("'REG%'");
+    }
     else{
-        echo "pas de recherche possible";}
+        echo "pas de recherche possible";
+    }
         ?>
     <button class="btn primary-btn" type="submit" name="action" value="showone">Afficher</button>
     </form>

@@ -31,4 +31,6 @@ add_menu_page(
 //Maintenant génération de l'intérieur de la page admin quand le slug est appelé
 function covid_tracker_admin_page(){
     include_once plugin_dir_path(__DIR__) . 'Vue/templateadmin.php';
+    include_once plugin_dir_path(__DIR__) . 'includes/scriptbackend.php';
+    
 }

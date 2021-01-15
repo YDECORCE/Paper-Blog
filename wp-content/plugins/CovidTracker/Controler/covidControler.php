@@ -9,7 +9,8 @@ if (isset($_POST['action'])&&($_POST['action']=='maj')){
 if (isset($_GET['action'])&&($_GET['action']=='show')){
     $filter=$_GET['search'];
     if ($filter=='all'){
-        echo "on va voir";}
+        echo "on va voir";
+    }
     else {
     $datas=getdata($filter);
     require(plugin_dir_path(__DIR__) .'Vue/table.php');  
@@ -28,10 +29,12 @@ function displayWidthSearchBar_controler($s){
     if (isset($_POST['action'])&&($_POST['action']=='showone')){
         $search=$_POST['search'];
         if ($search=='all'){
-            $requete="code LIKE ".$filter;}
+            $requete="code LIKE ".$filter;
+        }
         else {
         $requete="nom LIKE '".$search."' AND code LIKE ".$filter; 
-        }}
+        }
+    }
         elseif(isset($_POST['action'])&&($_POST['action']=='filter')){
             $champ=$_POST['column'];
             $operator=$_POST['operator'];

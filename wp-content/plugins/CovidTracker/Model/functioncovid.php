@@ -40,7 +40,7 @@ function adddatatotable(){
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, true);
     $data=curl_exec($ch);
     curl_close($ch);
     $reponse=json_decode($data,true);
@@ -57,7 +57,7 @@ function adddatatotable(){
             $ajouter->bindParam(':newrea', $reponse['allLiveFranceData'][$i]['nouvellesReanimations'],PDO::PARAM_STR);
             $ajouter->bindParam(':deces', $reponse['allLiveFranceData'][$i]['deces'],PDO::PARAM_STR);
             $ajouter->bindParam(':gueris', $reponse['allLiveFranceData'][$i]['gueris'],PDO::PARAM_STR);
-            $estceok=$ajouter->execute();
+            $ajouter->execute();
             }
 }
 /* function for changing datas in DB table */
@@ -66,9 +66,11 @@ function updatecovid(){
     $delete=$conn->prepare("DELETE FROM `bpwp_table_covid`");
     $estceok=$delete->execute();
     if($estceok){
-                echo 'effacement OK</br>';} 
+                echo 'effacement OK</br>';
+            } 
             else {
-                echo 'WTF</br>';}
+                echo 'WTF</br>';
+            }
     adddatatotable();
     echo "la table a été mise à jour";
 }
@@ -87,14 +89,12 @@ function liste_déroulante($filter)
     {
     if ($filter=="'DEP%'"){
         $label='tous les départements';
-        $name='departement';
         }
         else{
             $label='toutes les régions';
-            $name='region';
-        }
+            }
     $bdd=connect();
-    $reponse = $bdd->query("SELECT `code`, `nom` FROM `bpwp_table_covid` WHERE (bpwp_table_covid.code like $filter)");
+    $reponse = $bdd->query("SELECT `nom` FROM `bpwp_table_covid` WHERE (bpwp_table_covid.code like $filter)");
     echo'<select class="custom-select my-2 mx-5" name="search">';
     echo'<option value="all">'.$label.'</option>';
     while ($donnees = $reponse->fetch()) {
